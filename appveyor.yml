@@ -1,0 +1,19 @@
+version: 1.0.{build}-beta
+
+install:
+  - nuget restore
+
+init:
+  - git config --global core.autocrlf true
+
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: D2TX6fUq46IKD9U8vGm4+X+G50L5bY6JzAGGPxfkAg1U02owmM8WpHprKv5KWR7N
+
+build:
+  project: chattycrow.sln
+  verbosity: detailed
+
+after_test: 
+    - packages\OpenCover.4.5.3522\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/noshadow /domain:single  ChattyCrow.Tests\bin\debug\ChattyCrow.Tests.dll" -output:coverage.xml
+    - packages\coveralls.io.1.1.86\tools\coveralls.net.exe --opencover coverage.xml

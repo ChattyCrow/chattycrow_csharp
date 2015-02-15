@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChattyCrow;
+using NUnit.Framework;
 
 namespace chattycrowtest
 {
     /// <summary>
     /// Base class for cc.
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class BaseTest
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace chattycrowtest
         /// </summary>
         ChattyCrowClient client = new ChattyCrowClient(TOKEN_NAME, CHANNEL_NAME);
 
-        [TestMethod]
+        [Test]
         public void CorrectAssign()
         {
             Assert.AreEqual(client.GetHost(), ChattyCrowClient.DEFAULT_HOST);

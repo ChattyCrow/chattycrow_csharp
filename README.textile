@@ -2,7 +2,7 @@
 
 h1. ChattyCrow - C# library
 
-!https://ci.appveyor.com/api/projects/status/u132x66ph7i6ro0g?svg=true!:https://ci.appveyor.com/project/Strnadj/chattycrow-csharp
+!https://ci.appveyor.com/api/projects/status/u132x66ph7i6ro0g?svg=true!:https://ci.appveyor.com/project/Strnadj/chattycrow-csharp !https://coveralls.io/repos/ChattyCrow/chattycrow_csharp/badge.svg(Coverage Status)!:https://coveralls.io/r/ChattyCrow/chattycrow_csharp
 
 This library makes easier call ChattyCrow API (http://chattycrow.com/).
 

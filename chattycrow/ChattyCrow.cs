@@ -34,6 +34,11 @@ namespace ChattyCrow
         private string DefaultHost;
 
         /// <summary>
+        /// Default client.
+        /// </summary>
+        private RestClient DefaultClient;
+
+        /// <summary>
         /// Create basic chattycrow class.
         /// </summary>
         /// <param name="DefaultToken">Default token</param>
@@ -44,6 +49,12 @@ namespace ChattyCrow
             this.DefaultHost = DefaultHost;
             this.DefaultToken = DefaultToken;
             this.DefaultChannel = DefaultChannel;
+
+            // Ensure last char will be / for better concatenation
+            if (this.DefaultHost[this.DefaultHost.Length - 1] != '/')
+                this.DefaultHost += '/';
+
+            this.DefaultClient = new RestClient(this.DefaultHost);
         }
 
         /// <summary>
@@ -53,39 +64,33 @@ namespace ChattyCrow
         /// <param name="request">Request instance</param>
         /// <param name="channel">Optional channel</param>
         /// <param name="token">Optional token</param>
-        public RestRequest createRequest(RequestTypes type, string channel = "", string token = "", string host = "")
+        public RestRequest createRequest(RequestTypes type, string channel = "", string token = "")
         {
-            // Assign host if non optional
-            string url = host.Length > 0 ? host : this.DefaultHost;
-
-            // Ensure last char will be / for better concatenation
-            if (url[url.Length - 1] != '/')
-                url += '/';
-
             // Prepare method
             Method requestMethod = Method.POST;
+            string url = "";
 
             switch (type)
             {
                 case RequestTypes.SendNormal:
-                    url += "notification";
+                    url = "notification";
                     break;
 
                 case RequestTypes.SendBatch:
-                    url += "batch";
+                    url = "batch";
                     break;
 
                 case RequestTypes.GetMessage:
-                    url += "message";
+                    url = "message";
                     requestMethod = Method.GET;
                     break;
 
                 case RequestTypes.AddContacts:
-                    url += "contacts";
+                    url = "contacts";
                     break;
 
                 case RequestTypes.RemoveContacts:
-                    url += "contacts";
+                    url = "contacts";
                     requestMethod = Method.DELETE;
                     break;
             }
@@ -101,6 +106,14 @@ namespace ChattyCrow
             return req;
         }
 
+        /// <summary>
+        /// Return client.
+        /// </summary>
+        /// <returns>Default client.</returns>
+        public RestClient GetClient()
+        {
+            return this.DefaultClient;
+        }
 
         /// <summary>
         /// Return current token.

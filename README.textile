@@ -1,0 +1,8 @@
+!https://avatars1.githubusercontent.com/u/9012750?v=3&s=200!
+
+h1. ChattyCrow - C# library
+
+!https://ci.appveyor.com/api/projects/status/u132x66ph7i6ro0g?svg=true!:https://ci.appveyor.com/project/Strnadj/chattycrow-csharp
+
+This library makes easier call ChattyCrow API (http://chattycrow.com/).
+

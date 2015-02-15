@@ -5,10 +5,13 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyCrow", "chattycrow\ChattyCrow.csproj", "{F34513E9-A320-4818-96F9-F482AA97F376}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyCrowTest", "chattycrowtest\ChattyCrowTest.csproj", "{8F9396D7-A5E9-4695-A57B-BF61465BC162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyCrow.Tests", "ChattyCrow.Tests\ChattyCrow.Tests.csproj", "{8F9396D7-A5E9-4695-A57B-BF61465BC162}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B3065325-2457-4F78-B950-A207F4D2E34E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{718AB718-A09C-43EF-BE8F-49E53D96338B}"
 	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
